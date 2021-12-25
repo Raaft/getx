@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: GetBuilder<HomeController>(
+          child: GetX<HomeController>(
         init: HomeController(),
         builder: (controller) => Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,8 +21,7 @@ class Home extends StatelessWidget {
                   controller.increase();
                 },
                 icon: const Icon(Icons.add)),
-            Text(
-              controller.num.toString(),
+            Text('${controller.num.value}',
               style: const TextStyle(fontSize: 30, color: Colors.blue),
             ),
             IconButton(

@@ -1,14 +1,12 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  int num = 0;
+  RxInt num = 0.obs ;
 
   void increase() {
     num++;
-    update();
   }
   void decrease() {
     num--;
-    update();
   }
 }
