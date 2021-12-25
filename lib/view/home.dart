@@ -5,15 +5,15 @@ import 'package:get/get.dart';
 import 'package:getx/controller/home_controller.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
+  HomeController controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: GetX<HomeController>(
-        init: HomeController(),
-        builder: (controller) => Row(
+          child: Obx(
+        () => Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
@@ -21,7 +21,8 @@ class Home extends StatelessWidget {
                   controller.increase();
                 },
                 icon: const Icon(Icons.add)),
-            Text('${controller.num.value}',
+            Text(
+              '${controller.num.value}',
               style: const TextStyle(fontSize: 30, color: Colors.blue),
             ),
             IconButton(
